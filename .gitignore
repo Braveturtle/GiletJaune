@@ -1,0 +1,6 @@
+#ignore those
+BigData/*
+!BigData/BigFile.cs
+!BigData/Form1.cs
+!BigData/Form1.Designer.cs
+!BigData/Program.cs
