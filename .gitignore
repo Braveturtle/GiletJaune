@@ -4,5 +4,6 @@ BigData/*
 !BigData/Form1.cs
 !BigData/Form1.Designer.cs
 !BigData/Program.cs
+!BigData/BigData.csproj
 .vs/*
 packages/*
