@@ -17,7 +17,7 @@ namespace BigData
         public Form1()
         {
             InitializeComponent();
-            this.Load += Count;
+            this.btnReadFile.Click += Count;
         }
 
         public void Connect(object sender,EventArgs e)
