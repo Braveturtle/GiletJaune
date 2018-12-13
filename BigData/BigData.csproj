@@ -36,6 +36,9 @@
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Orient.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OrientDB-NET.binary.0.2.1\lib\Orient.Client.dll</HintPath>
+    </Reference>
     <Reference Include="OrientDB-Net.binary.Innov8tive, Version=0.1.13.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\OrientDB.NETStandard-1.5.0.1.13\lib\netstandard1.5\OrientDB-Net.binary.Innov8tive.dll</HintPath>
     </Reference>

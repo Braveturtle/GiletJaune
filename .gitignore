@@ -2,6 +2,8 @@
 BigData/*
 !BigData/BigFile.cs
 !BigData/Form1.cs
+!BigData/Form1.resx
+!App.config
 !BigData/Form1.Designer.cs
 !BigData/Program.cs
 !BigData/BigData.csproj

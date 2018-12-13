@@ -29,8 +29,6 @@ namespace BigData
             test.UserName = "admin";
             test.Password = "admin";
             Application.Exit();
-            ODatabase t = new ODatabase(test);
-            Console.WriteLine(t.DatabaseProperties);
         }
 
         public void Count(object sender,EventArgs e)
