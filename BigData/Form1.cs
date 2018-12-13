@@ -14,12 +14,11 @@ namespace BigData
 {
     public partial class Form1 : Form
     {
-        public static DateTime date;
-
+        private static BigFile bf = new BigFile(@"C:\Users\Administrateur\Desktop\crackstation.txt");
         public Form1()
         {
             InitializeComponent();
-            this.btnReadFile.Click += Count;
+            this.btnReadFile.Click += RunCalcLine;
         }
 
         public void Connect(object sender,EventArgs e)
@@ -33,15 +32,14 @@ namespace BigData
             Application.Exit();
         }
 
-        public void Count(object sender,EventArgs e)
+        public void RunCalcLine(object sender,EventArgs e)
         {
-            BigFile bf = new BigFile(@"C:\Users\Administrateur\Desktop\crackstation.txt");
-
-            date = DateTime.Now;
-            Console.WriteLine(date);
-            var T = new Thread(new ThreadStart(() => bf.TotalOfLines()));
-            T.Start();
+            Thread t = new Thread(bf.Count);
+            t.Start();
         }
+
+
+        
         
 
 
