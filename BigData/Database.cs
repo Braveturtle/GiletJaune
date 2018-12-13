@@ -20,5 +20,11 @@ namespace BigData
         private static string _passWord = "admin";
         
 
+
+        public static void Connect()
+        {
+
+        }
+
     }
 }

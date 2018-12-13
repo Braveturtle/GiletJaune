@@ -15,6 +15,7 @@ namespace BigData
     public partial class Form1 : Form
     {
         private static BigFile bf = new BigFile(@"C:\Users\Administrateur\Desktop\crackstation.txt");
+        private Thread T;
         public Form1()
         {
             InitializeComponent();
@@ -34,8 +35,11 @@ namespace BigData
 
         public void RunCalcLine(object sender,EventArgs e)
         {
-            Thread t = new Thread(bf.Count);
-            t.Start();
+            if (T == null)
+            {
+                T= new Thread(bf.Count);
+                T.Start();
+            }
         }
 
 
