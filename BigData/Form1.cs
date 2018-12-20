@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Orient.Client;
-using OrientDB_Net.binary.Innov8tive.API;
+//using OrientDB_Net.binary.Innov8tive.API;
 
 namespace BigData
 {
@@ -20,17 +20,20 @@ namespace BigData
         {
             InitializeComponent();
             this.btnReadFile.Click += RunCalcLine;
+            this.btnConnect.Click += Connect;
         }
 
         public void Connect(object sender,EventArgs e)
         {
-            ConnectionOptions test = new ConnectionOptions();
+            /*ConnectionOptions test = new ConnectionOptions();
             test.DatabaseName = "demodb";
             test.HostName = "10.5.51.31";
             test.Port = 2480;
             test.UserName = "admin";
             test.Password = "admin";
-            Application.Exit();
+            Application.Exit();*/
+            Database.Connect();
+            //Database.Db.DatabaseProperties;
         }
 
         public void RunCalcLine(object sender,EventArgs e)
