@@ -32,7 +32,7 @@ namespace BigData
             Db.Port = Port;
             Db.UserName = UserName;
             Db.Password = PassWord;*/
-            ODatabase db = new ODatabase(HostName, Port, DatabaseName, new ODatabaseType(), UserName, PassWord);
+            ODatabase db = new ODatabase(HostName, Port, DatabaseName, ODatabaseType.Graph, UserName, PassWord);
             Console.WriteLine(db.DatabaseProperties);
             //var database = new ODatabase(Db);
             //Connection connection = new Connection(Hostname, Port, databaseName, databaseType, userName, userPassword, alias, true);

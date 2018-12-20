@@ -32,6 +32,7 @@ namespace BigData
             test.UserName = "admin";
             test.Password = "admin";
             Application.Exit();*/
+            Console.WriteLine("paul");
             Database.Connect();
             //Database.Db.DatabaseProperties;
         }
