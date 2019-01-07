@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Orient.Client;
-using OrientDB_Net.binary.Innov8tive.API;
 
 namespace BigData
 {
@@ -13,11 +12,11 @@ namespace BigData
 
 
         private static ODatabase _db = null;
-        private static string _databaseName = "demodb";
-        private static string _hostName = "10.5.51.31";
-        private static int _port = 2480;
+        private static string _databaseName = "test2";
+        private static string _hostName = "127.0.0.1";
+        private static int _port = 2424;
         private static string _userName = "admin";
-        private static string _passWord = "admin";
+        private static string _passWord = "Super";
 
         public static ODatabase Db { get => _db; set => _db = value; }
         public static string DatabaseName { get => _databaseName; set => _databaseName = value; }
@@ -33,20 +32,24 @@ namespace BigData
             Db.Port = Port;
             Db.UserName = UserName;
             Db.Password = PassWord;*/
-            //ODatabase Db = new ODatabase(HostName, Port, DatabaseName, ODatabaseType.Document ,UserName, PassWord);
+            ODatabase Db = new ODatabase(HostName, Port, DatabaseName, ODatabaseType.Document ,UserName, PassWord);
+            List<ODocument> tmp = Db.Query("select * from Password");
+            Db.Close();
 
+            //OServer serv = new OServer(HostName, Port, UserName, PassWord);
+            //serv.Dispose();
             
 
-            ConnectionOptions opts = new ConnectionOptions();
+            // opts = new ConnectionOptions();
 
-            opts.HostName = HostName;
-            opts.UserName = UserName;
-            opts.Password = PassWord;
-            opts.Port = Port;
-            opts.DatabaseName = DatabaseName;
-            opts.DatabaseType = ODatabaseType.Document;
+            //opts.HostName = HostName;
+            //opts.UserName = UserName;
+            //opts.Password = PassWord;
+            //opts.Port = Port;
+            //opts.DatabaseName = DatabaseName;
+            //opts.DatabaseType = ODatabaseType.Document;
 
-            Db = new ODatabase(opts);
+            //Db = new ODatabase(opts);
 
             Console.Write(Db.Select().From("password").ToString());
             return null;
