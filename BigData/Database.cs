@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,12 @@ namespace BigData
 
 
         private static ODatabase _db = null;
-        private static string _databaseName = "test2";
+        private static string _databaseName = "crack";
         private static string _hostName = "127.0.0.1";
         private static int _port = 2424;
         private static string _userName = "admin";
         private static string _passWord = "Super";
+        private static string _path = @"C:\Users\Administrateur\Desktop\crackstation.txt";
 
         public static ODatabase Db { get => _db; set => _db = value; }
         public static string DatabaseName { get => _databaseName; set => _databaseName = value; }
@@ -24,6 +26,7 @@ namespace BigData
         public static int Port { get => _port; set => _port = value; }
         public static string UserName { get => _userName; set => _userName = value; }
         public static string PassWord { get => _passWord; set => _passWord = value; }
+        public static string Path { get => _path; set => _path = value; }
 
         public static ODatabase Connect()
         {
@@ -32,13 +35,13 @@ namespace BigData
             Db.Port = Port;
             Db.UserName = UserName;
             Db.Password = PassWord;*/
-            ODatabase Db = new ODatabase(HostName, Port, DatabaseName, ODatabaseType.Document ,UserName, PassWord);
-            List<ODocument> tmp = Db.Query("select * from Password");
-            Db.Close();
+            Db = new ODatabase(HostName, Port, DatabaseName, ODatabaseType.Document ,UserName, PassWord);
+            Console.WriteLine(Db.Query("select * from Password"));
+            //InsertWord();
 
             //OServer serv = new OServer(HostName, Port, UserName, PassWord);
             //serv.Dispose();
-            
+
 
             // opts = new ConnectionOptions();
 
@@ -51,7 +54,8 @@ namespace BigData
 
             //Db = new ODatabase(opts);
 
-            Console.Write(Db.Select().From("password").ToString());
+            //Console.Write(Db.Select().From("password").ToString());
+            Db.Close();
             return null;
 
             /*
@@ -73,6 +77,31 @@ namespace BigData
 
             //var database = new ODatabase(Db);
             //Connection connection = new Connection(Hostname, Port, databaseName, databaseType, userName, userPassword, alias, true);
+
+        }
+
+
+        private static void InsertWord()
+        {
+            int len = 0;
+            using (StreamReader oReader = new StreamReader(Path))
+            {
+                string strLine;
+                while ((strLine = oReader.ReadLine()) != null)
+                {
+                    if (strLine.Length > 0)
+                    {
+                        len = strLine.Length;
+                        if (strLine.IndexOf("\\") != -1)
+                        {
+                            strLine = strLine.Replace(@"\", @"\\");
+                        }
+                        string com = $"insert into Password(Words, Length) values(\"{strLine}\", {len})";
+                        Db.Command(com);
+                    }
+                    
+                }
+            }
 
         }
 
